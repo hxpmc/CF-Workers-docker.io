@@ -516,7 +516,7 @@ function httpHandler(req, pathname, baseHost) {
 	const reqHdrNew = new Headers(reqHdrRaw);
 
 	const refer = reqHdrNew.get('referer');
-
+        reqHdrNew.delete("Authorization"); // 修复s3错误
 	let urlStr = pathname;
 
 	const urlObj = newUrl(urlStr, 'https://' + baseHost);
